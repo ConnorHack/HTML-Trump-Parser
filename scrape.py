@@ -78,7 +78,7 @@ def parse_cnn( url ):
     @param url the string representation of the cnn url
     '''
     # extract title from page url
-    title = re.sub('.*/(.*)/index\.html',"\g<1>",url)
+    title = re.sub('.*/(.*)/(index\.html|)',"\g<1>",url)
     # get page and make it nice
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
