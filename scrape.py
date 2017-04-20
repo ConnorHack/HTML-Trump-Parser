@@ -1,3 +1,20 @@
+'''
+scrape.py reads in a text file, links.txt, that contains cnn and fox news links.
+The script then parses each webpage, reading the article text, stripping punctuation,
+creating a hashmap of word->word frequency, finally outputting it as a csv file in 
+a sub folder called cnn/fox, depending on the article website.
+
+To run, first ensure you have installed requests and bs4:
+
+    sudo pip3 install requests bs4
+
+then run the script as follows:
+
+    python3 scrape.py
+
+NOTE: if the file links.txt does not exist or is incorrectly formatted, the program
+will likely crash.
+'''
 # extract article title and remove html tags
 import re
 # get text from specific html tags
