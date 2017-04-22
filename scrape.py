@@ -31,9 +31,9 @@ import os
 from bisect import bisect_left
 
 # Supported news sources. These are also associated with indices
-CONST_NYTIMES    =    0
-CONST_CNN         =    1
-CONST_FOXNEWS    =    2
+CONST_NYTIMES        =    0
+CONST_CNN            =    1
+CONST_FOXNEWS        =    2
 
 # Title specifiers. These are used to extract each source's title.
 # Index 0: NY Times
@@ -45,7 +45,7 @@ CONST_TITLE_SPECS    =    ['\.html.*', '/index\.html', '\.html']
 # Index 0: NY Times
 # Index 1: CNN
 # Index 2: Fox News
-CONST_PARA_SPECS    =    ['p.story-body-text.story-content', 'div.zn-body__paragraph', 'div.article-text']
+CONST_PARA_SPECS     =    ['p.story-body-text.story-content', 'div.zn-body__paragraph', 'div.article-text']
 
 # CSV file names. These are file names to be used when exporting the content as a CSV file
 # Index 0: NY Times
@@ -55,17 +55,17 @@ CONST_CSV_NAMES      =    ['NYTIMES','CNN','FOXNEWS']
 
 
 # If the system is Daniel's, we need to exclude the special characters <> and <>
-CONST_IS_DANIELS_SYS    =    False
+CONST_IS_DANIELS_SYS =    False
 
 # Current directory we are under.
-CUR_DIR        =    "."
+CUR_DIR              =    "."
 
 # Global lists for lexicons
-CONST_POS_WORDS        = []
-CONST_NEG_WORDS        = []
+CONST_POS_WORDS      = []
+CONST_NEG_WORDS      = []
 
 # Name of file that stores the summary of the link parse
-CONST_FN_SUMMARY    =    'summary.txt'
+CONST_FN_SUMMARY     =    'summary.txt'
 # Name of file that stores all of the topics (the head)
 CONST_FN_HEAD        =    'Topics'
 
@@ -74,9 +74,9 @@ Function name:
     parse_html
 
 Parameters: 
-@param    url      String      Contains the url to parse 
+@param    url        String      Contains the url to parse 
 @param    siteInd    Int         Identifies the news source to use. It is an index based on 
-                     the constants: CONST_NYTIMES, CONST_CNN, CONST_FOXNEWS
+                                 the constants: CONST_NYTIMES, CONST_CNN, CONST_FOXNEWS
 
 Description:
     Parses a NY Times, CNN, or Fox News webpage for information in the article
