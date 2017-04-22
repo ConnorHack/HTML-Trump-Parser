@@ -27,19 +27,68 @@ import string
 import csv
 # make folders
 import os
+# binary search
+from bisect import bisect_left
 
-def parse_fox( url ):
-    '''
-    parse_fox parses a fox news webpage for the information in an article.
-    @param url the string representation of the fox news url
-    '''
-    # extract title from page url
-    title = re.sub('.*/(.*)\.html',"\g<1>",url)
+# Supported news sources. These are also associated with indices
+CONST_NYTIMES    =    0
+CONST_CNN         =    1
+CONST_FOXNEWS    =    2
+
+# Title specifiers. These are used to extract each source's title.
+# Index 0: NY Times
+# Index 1: CNN
+# Index 2: Fox News 
+CONST_TITLE_SPECS    =    ['\.html.*', '/index\.html', '\.html']
+
+# HTML paragraph specifiers. These are used to extract each source's page content.
+# Index 0: NY Times
+# Index 1: CNN
+# Index 2: Fox News
+CONST_PARA_SPECS    =    ['p.story-body-text.story-content', 'div.zn-body__paragraph', 'div.article-text']
+
+# CSV file names. These are file names to be used when exporting the content as a CSV file
+# Index 0: NY Times
+# Index 1: CNN
+# Index 2: Fox News
+CONST_CSV_NAMES      =    ['NYTIMES','CNN','FOXNEWS']
+
+
+# If the system is Daniel's, we need to exclude the special characters <> and <>
+CONST_IS_DANIELS_SYS    =    False
+
+# Current directory we are under.
+CUR_DIR        =    "."
+
+# Global lists for lexicons
+CONST_POS_WORDS        = []
+CONST_NEG_WORDS        = []
+
+# Name of file that stores the summary of the link parse
+CONST_FN_SUMMARY    =    'summary.txt'
+# Name of file that stores all of the topics (the head)
+CONST_FN_HEAD        =    'Topics'
+
+"""
+Function name: 
+    parse_html
+
+Parameters: 
+@param    url      String      Contains the url to parse 
+@param    siteInd    Int         Identifies the news source to use. It is an index based on 
+                     the constants: CONST_NYTIMES, CONST_CNN, CONST_FOXNEWS
+
+Description:
+    Parses a NY Times, CNN, or Fox News webpage for information in the article
+"""
+def parse_html( url, siteInd):
+    # extract title from page url    
+    title = re.sub('.*/(.*)'+CONST_TITLE_SPECS[siteInd],"\g<1>",url)
     # get page and make it nice
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
     # grab part of page we want
-    links = soup.select('div.article-text')
+    links = soup.select(CONST_PARA_SPECS[siteInd])
     strlist = []
     # the dictionary mapping word->freqency
     freq = {}
@@ -47,8 +96,6 @@ def parse_fox( url ):
     exclude = set(string.punctuation)
     exclude.discard("'")
     exclude.discard('-')
-    exclude.add("“")
-    exclude.add("”")
     # strip html tags and punctuation
     for lstring in links:
         newstr = str(lstring)
@@ -56,134 +103,171 @@ def parse_fox( url ):
         s = ''.join(ch for ch in newstr if ch not in exclude)
         strlist.append(s)
 
+    # Keep track of counts we are interested in
+    posCount = 0
+    negCount = 0
+    numWords = 0
+    uniqueWords = 0
+    posWords = []
+    negWords = []
     # break into words and update freqencies
     for lstring in strlist:
         for word in lstring.split():
+            numWords += 1
             w = word.lower()
             if w in freq.keys():
                 freq[w] += 1
             else:
                 freq[w] = 1
+                uniqueWords += 1
+            # Count towards positive/negative words
+            if binary_search(CONST_POS_WORDS,w) != -1:
+                posCount += 1
+                posWords.append(w)
+            if binary_search(CONST_NEG_WORDS,w) != -1:
+                negCount += 1
+                negWords.append(w)
     if "--" in freq.keys():
         del freq["--"]
     # write the frequencies as a csv
-    with open('fox/{}.csv'.format(title),'w') as f:
+    with open(os.path.abspath(os.path.join(CUR_DIR,CONST_CSV_NAMES[siteInd]+'.csv')),'w') as f:
         w = csv.writer(f)
         for key, value in freq.items():
             w.writerow([key,value])
+    # Write to the summary.txt file
+    with open(os.path.abspath(os.path.join(CUR_DIR,CONST_FN_SUMMARY)),'a') as f:
+        f.write('News source: {}\n'.format(CONST_CSV_NAMES[siteInd]))
+        f.write('URL Link: {}\n'.format(url));
+        f.write('Total word count: {}\n'.format(numWords))
+        f.write('Unique word count: {}\n'.format(uniqueWords))
+        f.write('Positive word count: {}\n'.format(posCount))
+        f.write('Negative word count: {}\n'.format(negCount))
+        f.write('Positive words: {}\n'.format(posWords))
+        f.write('Negative words: {}\n'.format(negWords))
+        f.write('\n')
 
-def parse_cnn( url ):
-    '''
-    parse_cnn parses a cnn webpage for the information in an article.
-    @param url the string representation of the cnn url
-    '''
-    # extract title from page url
-    title = re.sub('.*/(.*)/(index\.html|)',"\g<1>",url)
-    # get page and make it nice
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, "html.parser")
-    # grab part of page we want
-    links = soup.select('div.zn-body__paragraph')
-    strlist = []
-    # the dictionary mapping word->freqency
-    freq = {}
-    # set of punctuation to strip, not including ' and -
-    exclude = set(string.punctuation)
-    exclude.discard("'")
-    exclude.discard('-')
-    # strip html tags and punctuation
-    for lstring in links:
-        newstr = str(lstring)
-        newstr = re.sub('<.*?>', '', newstr)
-        s = ''.join(ch for ch in newstr if ch not in exclude)
-        strlist.append(s)
+"""
+Function name:
+    parse_link
+    
+Parameters:
+@param        url        String        The URL to parse for HTML
 
-    # break into words and update freqencies
-    for lstring in strlist:
-        for word in lstring.split():
-            w = word.lower()
-            if w in freq.keys():
-                freq[w] += 1
-            else:
-                freq[w] = 1
-    if "--" in freq.keys():
-        del freq["--"]
-    # write the frequencies as a csv
-    with open('cnn/{}.csv'.format(title),'w') as f:
-        w = csv.writer(f)
-        for key, value in freq.items():
-            w.writerow([key,value])
+Description:
+    Helper function to identify which news source we are using
+"""
+def parse_link(url):
+    if(re.search("foxnews\.com", url)):
+        parse_html( url.strip(), CONST_FOXNEWS )
+    elif(re.search("cnn\.com", url)):
+        parse_html( url.strip(), CONST_CNN )
+    elif(re.search("nytimes\.com", url)):
+        parse_html( url.strip(), CONST_NYTIMES )
 
-def parse_nyt( url ):
-    '''
-    parse_nyt parses a nyt webpage for the information in an article.
-    @param url the string representation of the nyt url
-    '''
-    # extract title from page url
-    title = re.sub('.*/(.*)\.html.*',"\g<1>",url)
-    # get page and make it nice
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, "html.parser")
-    # grab part of page we want
-    links = soup.select('p.story-body-text.story-content')
-    strlist = []
-    # the dictionary mapping word->freqency
-    freq = {}
-    # set of punctuation to strip, not including ' and -
-    exclude = set(string.punctuation)
-    exclude.discard("'")
-    exclude.discard('-')
-    exclude.add("“")
-    exclude.add("”")
-    # strip html tags and punctuation
-    for lstring in links:
-        newstr = str(lstring)
-        newstr = re.sub('<.*?>', '', newstr)
-        s = ''.join(ch for ch in newstr if ch not in exclude)
-        strlist.append(s)
+"""
+Function name: 
+    create_dirs
 
-    # break into words and update freqencies
-    for lstring in strlist:
-        for word in lstring.split():
-            w = word.lower()
-            if w in freq.keys():
-                freq[w] += 1
-            else:
-                freq[w] = 1
-    if "--" in freq.keys():
-        del freq["--"]
-    # write the frequencies as a csv
-    with open('nyt/{}.csv'.format(title),'w') as f:
-        w = csv.writer(f)
-        for key, value in freq.items():
-            w.writerow([key,value])
+Parameters: 
+@param    fileName      String      Contains the fileName for the list of links
+                                    we are to parse
 
-def parse_file( filename ):
-    '''
-    parse_file parses a file containing cnn and/or foxnews links, one on each line.
-    @param filename the name of the file to read.
-    '''
-    with open(filename) as f:
+Description:
+    Parses a text file for links to parse.  
+    
+    The text file contains the following structure:
+    ---
+    DIRECTORY_NAME_BASED_ON_TOPIC
+    http://cnn.com/<article>
+    http://foxnews.com/<article>
+    http://nytimes.com/<article>
+
+    DIRECTORY_NAME_BASED_ON_TOPIC
+    http://cnn.com/<article>
+    http://foxnews.com/<article>
+    http://nytimes.com/<article>
+    ---    
+"""
+def create_dirs( fileName ):
+    global CUR_DIR
+    
+    # Confirm the head directory is created
+    if not os.path.exists(CONST_FN_HEAD):
+        os.makedirs(CONST_FN_HEAD)
+    
+    with open(fileName) as f:
         for line in f:
-            if(re.search("foxnews\.com", line)):
-                parse_fox( line.strip() )
-            elif(re.search("cnn\.com", line)):
-                parse_cnn( line.strip() )
-            elif(re.search("nytimes\.com", line)):
-                parse_nyt( line.strip() )
+            # Get rid of all newline characters
+            line = line.strip('\n')
+            if not re.search("http", line) and len(line) > 0:
+                # If the line is not a link, then it is a topic name
+                newDir = os.path.join(CONST_FN_HEAD,line);
+                if not os.path.exists(newDir):
+                    os.makedirs(newDir)
+                CUR_DIR = newDir
+                
+                # Delete the summary.txt file's contents if it already exists
+                if os.path.exists(os.path.join(CUR_DIR,CONST_FN_SUMMARY)):
+                    open(os.path.join(CUR_DIR,CONST_FN_SUMMARY),'w').close()
+            else:
+                # The line is a link, so let's parse it
+                parse_link(line)
 
+"""
+Function name: 
+    binary_search
+
+Parameters: 
+@param    a      List      Contains the list to search over
+@param    x      Int       The target we are searching for
+@param    lo     Int       The smallest index within the list we are searching over
+@param    hi     Int       The largest index within the list we are searching over
+
+Description:
+    Parses a NY Times, CNN, or Fox News webpage for information in the article
+"""
+def binary_search(a,x,lo=0,hi=None):
+    hi = hi or len(a)  # hi defaults to len(a)   
+    pos = bisect_left(a, x, lo, hi)  # find insertion position
+    return (pos if pos != hi and a[pos] == x else -1)  # don't walk off the end
+    
+"""
+Function name: 
+    parse_lexicons
+
+Parameters: 
+@param    fileName      String      Contains the name of the file to parse
+@param    array         List        The place to store the list of words/lexicons
+
+Description:
+    Parses a file for a list of words
+"""    
+def parse_lexicons(fileName, array):    
+    with open(fileName) as f:
+        for line in f:
+            line = line.strip('\n')
+            # The files we are using uses semicolons as comments, remove them
+            if ';' not in line and len(line) > 0:
+                array.append(line)
+                
+"""
+Function name:
+    main
+
+Parameters:
+None
+
+Description:
+    Main function to call
+"""    
 def main():
-    # make fox folder
-    if not os.path.exists("fox"):
-        os.makedirs("fox")
-    # make cnn folder
-    if not os.path.exists("cnn"):
-        os.makedirs("cnn")
-    parse_file( "links.txt" )
-    # make nyt folder
-    if not os.path.exists("nyt"):
-        os.makedirs("nyt")
-    parse_file( "links.txt" )
+    # Parse the list of positive and negative words into their respective lists
+    global CONST_POS_WORDS, CONST_NEG_WORDS
+    parse_lexicons('positive-words.txt', CONST_POS_WORDS)
+    parse_lexicons('negative-words.txt', CONST_NEG_WORDS)
+    
+    # Create the directories necessary to begin parsing
+    create_dirs( "links.txt" )
 
 if __name__ == '__main__':
     main()
