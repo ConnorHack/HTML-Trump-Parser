@@ -243,7 +243,7 @@ Description:
     Parses a file for a list of words
 """    
 def parse_lexicons(fileName, array):    
-    with open(fileName) as f:
+    with open(fileName, encoding='ISO-8859-1') as f:
         for line in f:
             line = line.strip('\n')
             # The files we are using uses semicolons as comments, remove them
