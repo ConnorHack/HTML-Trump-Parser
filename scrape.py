@@ -29,6 +29,8 @@ import csv
 import os
 # binary search
 from bisect import bisect_left
+# Grab sys for detecting python version
+import sys
 
 # Supported news sources. These are also associated with indices
 CONST_NYTIMES        =    0
@@ -242,13 +244,24 @@ Parameters:
 Description:
     Parses a file for a list of words
 """    
-def parse_lexicons(fileName, array):    
-    with open(fileName, encoding='ISO-8859-1') as f:
-        for line in f:
-            line = line.strip('\n')
-            # The files we are using uses semicolons as comments, remove them
-            if ';' not in line and len(line) > 0:
-                array.append(line)
+def parse_lexicons(fileName, array):
+    if (sys.version_info[0] > 2):
+        # We must be using Python 3
+        with open(fileName, encoding='ISO-8859-1') as f:
+            for line in f:
+                line = line.strip('\n')
+                # The files we are using uses semicolons as comments, remove them
+                if ';' not in line and len(line) > 0:
+                    array.append(line)
+    else:
+        # Else we are using Python 2
+        with open(fileName) as f:
+            for line in f:
+                line = line.strip('\n')
+                # The files we are using uses semicolons as comments, remove them
+                if ';' not in line and len(line) > 0:
+                    array.append(line)
+    
                 
 """
 Function name:
