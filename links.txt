@@ -12,3 +12,13 @@ WALL
 https://www.nytimes.com/2017/04/25/us/politics/mexico-wall-spending-trump.html
 http://www.cnn.com/2017/04/26/politics/trump-border-wall-funding/
 http://www.foxnews.com/politics/2017/04/25/trumps-reported-shift-on-border-wall-money-could-prevent-govt-shutdown.html
+
+TAX_PLAN
+https://www.nytimes.com/2017/04/26/us/politics/trump-tax-cut-plan.html
+http://www.cnn.com/2017/04/25/opinions/trumps-billionaire-friendly-tax-plan-mccaffery/
+http://www.foxnews.com/politics/2017/04/26/trump-team-proposes-massive-tax-cuts-in-new-reform-plan.html
+
+JUDGE_BLOCKS_ORDER
+http://www.foxnews.com/politics/2017/04/26/sanctuary-cities-fight-judge-who-blocked-trump-order-democrat-activist.html
+https://www.nytimes.com/2017/04/25/us/judge-blocks-trump-sanctuary-cities.html?rref=collection%2Fsectioncollection%2Fus&action=click&contentCollection=us&region=stream&module=stream_unit&version=search&contentPlacement=18&pgtype=sectionfront
+http://www.cnn.com/2017/04/25/politics/sanctuary-cities-injunction/index.html
