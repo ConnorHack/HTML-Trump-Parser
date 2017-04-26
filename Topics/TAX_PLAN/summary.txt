@@ -1,0 +1,27 @@
+News source: NYTIMES
+URL Link: https://www.nytimes.com/2017/04/26/us/politics/trump-tax-cut-plan.html
+Total word count: 1265
+Unique word count: 530
+Positive word count: 36
+Negative word count: 17
+Positive words: ['sharp', 'easing', 'rich', 'popular', 'charitable', 'support', 'encourage', 'entice', 'support', 'affordable', 'fast', 'reform', 'reform', 'clear', 'promises', 'simplify', 'strong', 'well', 'benefits', 'like', 'benefit', 'top', 'leading', 'work', 'stronger', 'great', 'comprehensive', 'openness', 'better', 'like', 'top', 'wealthy', 'effectively', 'rich', 'reform', 'wealthy']
+Negative words: ['burden', 'elimination', 'debt', 'fails', 'loopholes', 'struggle', 'resistance', 'fear', 'starkly', 'concede', 'expire', 'hedge', 'concerns', 'concerns', 'loophole', 'concern', 'explode']
+
+News source: CNN
+URL Link: http://www.cnn.com/2017/04/25/opinions/trumps-billionaire-friendly-tax-plan-mccaffery/
+Total word count: 704
+Unique word count: 349
+Positive word count: 28
+Negative word count: 24
+Positive words: ['coherent', 'nifty', 'reform', 'sweeping', 'win', 'benefit', 'work', 'like', 'rich', 'welcome', 'magic', 'optimistic', 'rich', 'rich', 'perfectly', 'well', 'best', 'great', 'better', 'promising', 'reform', 'top', 'like', 'top', 'promise', 'reform', 'sensible', 'like']
+Negative words: ['loss', 'lose', 'slashing', 'elimination', 'devilish', 'lose', 'worries', 'trick', 'lie', 'unfortunately', 'painfully', 'problems', 'risky', 'hurt', 'debt', 'debt', 'debt', 'devastating', 'debt', 'risky', 'breaks', 'unfortunately', 'inequality', 'concerns']
+
+News source: FOXNEWS
+URL Link: http://www.foxnews.com/politics/2017/04/26/trump-team-proposes-massive-tax-cuts-in-new-reform-plan.html
+Total word count: 523
+Unique word count: 276
+Positive word count: 18
+Negative word count: 12
+Positive words: ['sweeping', 'reform', 'savings', 'optimism', 'reform', 'benefit', 'top', 'well', 'reform', 'benefit', 'popular', 'like', 'charitable', 'work', 'top', 'work', 'better', 'simplify']
+Negative words: ['criticism', 'breaks', 'unleash', 'collapse', 'lost', 'conflicts', 'crippling', 'debt', 'breaks', 'breaks', 'critical', 'deride']
+

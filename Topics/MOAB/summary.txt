@@ -1,0 +1,27 @@
+News source: CNN
+URL Link: http://www.cnn.com/2017/04/13/politics/donald-trump-moab-afghanistan/
+Total word count: 351
+Unique word count: 191
+Positive word count: 3
+Negative word count: 13
+Positive words: ['eager', 'successful', 'approve']
+Negative words: ['strike', 'strike', 'bomb', 'touted', 'bomb', 'strike', 'strike', 'strike', 'strike', 'strike', 'bomb', 'bomb', 'bomb']
+
+News source: FOXNEWS
+URL Link: http://www.foxnews.com/politics/2017/04/14/moab-drop-ordered-by-us-general-trump-approval-not-needed-officials-say.html
+Total word count: 462
+Unique word count: 255
+Positive word count: 10
+Negative word count: 13
+Positive words: ['top', 'approval', 'flexibility', 'successful', 'right', 'right', 'incredible', 'incredible', 'proud', 'successful']
+Negative words: ['bomb', 'obliterate', 'bomb', 'damage', 'bomb', 'killed', 'strike', 'strike', 'bomb', 'smoke', 'bomb', 'strike', 'deny']
+
+News source: NYTIMES
+URL Link: https://www.nytimes.com/2017/04/13/world/asia/moab-mother-of-all-bombs-afghanistan.html?_r=0
+Total word count: 1279
+Unique word count: 548
+Positive word count: 17
+Negative word count: 49
+Positive words: ['powerful', 'defeat', 'speedily', 'successful', 'hot', 'greatest', 'successful', 'relaxed', 'great', 'pride', 'well', 'wonders', 'well', 'right', 'advanced', 'guidance', 'work']
+Negative words: ['bomb', 'cave', 'complex', 'strike', 'emergency', 'casualty', 'intense', 'killed', 'concerns', 'strike', 'killed', 'killed', 'complex', 'anti-american', 'danger', 'kill', 'wrong', 'inevitably', 'strike', 'bomb', 'complex', 'killed', 'bomb', 'destroy', 'strike', 'intense', 'destroy', 'frighten', 'killed', 'bomb', 'bomb', 'explosive', 'resistance', 'attacks', 'retreated', 'damage', 'unclear', 'strike', 'condemned', 'terror', 'inhuman', 'brutal', 'misuse', 'dangerous', 'hard', 'strike', 'fell', 'killed', 'risk']
+

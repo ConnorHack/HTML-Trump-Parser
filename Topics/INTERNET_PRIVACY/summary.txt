@@ -1,0 +1,27 @@
+News source: FOXNEWS
+URL Link: http://www.foxnews.com/politics/2017/03/30/trump-expected-to-sign-bill-undoing-obama-era-internet-privacy-rules.html
+Total word count: 950
+Unique word count: 466
+Positive word count: 22
+Negative word count: 23
+Positive words: ['lucrative', 'victory', 'swift', 'like', 'important', 'consistently', 'like', 'approval', 'benefit', 'favored', 'winners', 'innovation', 'sensitive', 'free', 'free', 'intimate', 'poised', 'recommend', 'protect', 'luxury', 'right', 'afford']
+Negative words: ['critics', 'controversial', 'overturn', 'misguided', 'unfairly', 'disadvantage', 'kill', 'reject', 'losers', 'flake', 'overturn', 'oversight', 'oversight', 'limit', 'jeopardize', 'limit', 'stifle', 'jeopardize', 'flake', 'oversight', 'problem', 'resistance', 'expensive']
+
+News source: CNN
+URL Link: http://www.cnn.com/2017/03/29/opinions/internet-privacy-crain/
+Total word count: 531
+Unique word count: 296
+Positive word count: 16
+Negative word count: 10
+Positive words: ['like', 'advocates', 'victory', 'powerful', 'benefits', 'like', 'robust', 'perfect', 'significant', 'facilitate', 'protection', 'proactive', 'fervor', 'worth', 'affirmative', 'work']
+Negative words: ['fall', 'revoke', 'overwhelming', 'undermine', 'concern', 'overstated', 'troubling', 'problem', 'erode', 'limited']
+
+News source: NYTIMES
+URL Link: https://www.nytimes.com/2017/03/29/opinion/how-the-republicans-sold-your-privacy-to-internet-providers.html
+Total word count: 667
+Unique word count: 334
+Positive word count: 17
+Negative word count: 13
+Positive words: ['intelligence', 'like', 'significant', 'protection', 'free', 'like', 'important', 'led', 'available', 'favor', 'privilege', 'protect', 'gladly', 'good', 'powerful', 'tough', 'luck']
+Negative words: ['strike', 'blow', 'overturn', 'problems', 'problem', 'perverse', 'insult', 'injury', 'risk', 'shoddy', 'steal', 'calamities', 'hypocrisy']
+

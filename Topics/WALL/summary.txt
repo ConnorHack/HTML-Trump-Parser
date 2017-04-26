@@ -1,0 +1,27 @@
+News source: NYTIMES
+URL Link: https://www.nytimes.com/2017/04/25/us/politics/mexico-wall-spending-trump.html
+Total word count: 980
+Unique word count: 456
+Positive word count: 22
+Negative word count: 19
+Positive words: ['easing', 'cleared', 'important', 'smart', 'promise', 'protect', 'clear', 'promise', 'protection', 'tough', 'like', 'well', 'productive', 'important', 'work', 'affordable', 'leverage', 'benefits', 'led', 'benefits', 'like', 'strikingly']
+Negative words: ['disputed', 'fake', 'conservative', 'needless', 'illegally', 'illegal', 'falling', 'drastically', 'fell', 'illegal', 'fallen', 'feverish', 'issues', 'threat', 'lose', 'dispute', 'loss', 'issue', 'ailing']
+
+News source: CNN
+URL Link: http://www.cnn.com/2017/04/26/politics/trump-border-wall-funding/
+Total word count: 511
+Unique word count: 245
+Positive word count: 5
+Negative word count: 9
+Positive words: ['important', 'lead', 'well', 'best', 'charitable']
+Negative words: ['staid', 'bash', 'conservative', 'delay', 'delaying', 'delayed', 'confusion', 'annoyed', 'confusing']
+
+News source: FOXNEWS
+URL Link: http://www.foxnews.com/politics/2017/04/25/trumps-reported-shift-on-border-wall-money-could-prevent-govt-shutdown.html
+Total word count: 538
+Unique word count: 278
+Positive word count: 12
+Negative word count: 11
+Positive words: ['promised', 'clear', 'flexible', 'willing', 'significant', 'important', 'important', 'clear', 'good', 'outstanding', 'dedicated', 'optimistic']
+Negative words: ['conservative', 'issue', 'impasse', 'fake', 'fake', 'fails', 'issues', 'opposition', 'controversial', 'issue', 'blunt']
+

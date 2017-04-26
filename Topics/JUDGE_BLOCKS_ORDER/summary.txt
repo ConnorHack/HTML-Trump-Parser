@@ -1,0 +1,27 @@
+News source: FOXNEWS
+URL Link: http://www.foxnews.com/politics/2017/04/26/sanctuary-cities-fight-judge-who-blocked-trump-order-democrat-activist.html
+Total word count: 914
+Unique word count: 457
+Positive word count: 17
+Negative word count: 11
+Positive words: ['openly', 'progress', 'impartiality', 'openly', 'like', 'fair', 'well', 'prominent', 'helped', 'success', 'glory', 'quaint', 'well', 'accurate', 'accurate', 'prompt', 'outstanding']
+Negative words: ['struck', 'interfere', 'lacked', 'blasted', 'damning', 'shake', 'uncomfortable', 'complained', 'vice', 'critical', 'anomalous']
+
+News source: NYTIMES
+URL Link: https://www.nytimes.com/2017/04/25/us/judge-blocks-trump-sanctuary-cities.html?rref=collection%2Fsectioncollection%2Fus&action=click&contentCollection=us&region=stream&module=stream_unit&version=search&contentPlacement=18&pgtype=sectionfront
+Total word count: 1089
+Unique word count: 488
+Positive word count: 12
+Negative word count: 36
+Positive words: ['significant', 'win', 'victory', 'helping', 'trust', 'protect', 'responsive', 'commitment', 'reasonably', 'supreme', 'supreme', 'affordable']
+Negative words: ['starve', 'limit', 'stinging', 'rejection', 'threats', 'fall', 'setback', 'doubt', 'issues', 'coerce', 'criticized', 'limit', 'refusing', 'threaten', 'breaking', 'lose', 'risk', 'overreach', 'ignore', 'warned', 'jeopardy', 'harboring', 'killing', 'crime', 'conservative', 'uncooperative', 'worst', 'fears', 'fear', 'impose', 'partisan', 'sue', 'unconstitutional', 'sued', 'losing', 'showdown']
+
+News source: CNN
+URL Link: http://www.cnn.com/2017/04/25/politics/sanctuary-cities-injunction/index.html
+Total word count: 1682
+Unique word count: 605
+Positive word count: 34
+Negative word count: 56
+Positive words: ['succeed', 'faith', 'confident', 'supreme', 'lawful', 'supreme', 'appeal', 'appeal', 'reasonable', 'successfully', 'succeed', 'favor', 'win', 'upheld', 'effectively', 'works', 'confident', 'clear', 'well', 'improve', 'protect', 'safe', 'work', 'productive', 'clarity', 'providence', 'safe', 'qualify', 'like', 'like', 'honor', 'honor', 'accomplished', 'honor']
+Negative words: ['threat', 'unconstitutional', 'unconstitutional', 'irreparable', 'harm', 'scathing', 'egregious', 'overreach', 'undermines', 'impose', 'frustration', 'ridiculous', 'absurd', 'restriction', 'suffering', 'irreparable', 'harm', 'threatening', 'suffer', 'irreparable', 'harm', 'harms', 'threat', 'dead', 'overreach', 'ignore', 'controversial', 'threats', 'punish', 'obscure', 'threaten', 'jeopardize', 'narrower', 'refuse', 'skeptical', 'rhetoric', 'rhetoric', 'doubt', 'doubt', 'disagree', 'concern', 'threats', 'threat', 'undocumented', 'threat', 'threat', 'pretend', 'concern', 'confusion', 'complaints', 'confusion', 'issue', 'lacked', 'risk', 'losing', 'limited']
+
