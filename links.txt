@@ -7,3 +7,8 @@ INTERNET_PRIVACY
 http://www.foxnews.com/politics/2017/03/30/trump-expected-to-sign-bill-undoing-obama-era-internet-privacy-rules.html
 http://www.cnn.com/2017/03/29/opinions/internet-privacy-crain/
 https://www.nytimes.com/2017/03/29/opinion/how-the-republicans-sold-your-privacy-to-internet-providers.html
+
+WALL
+https://www.nytimes.com/2017/04/25/us/politics/mexico-wall-spending-trump.html
+http://www.cnn.com/2017/04/26/politics/trump-border-wall-funding/
+http://www.foxnews.com/politics/2017/04/25/trumps-reported-shift-on-border-wall-money-could-prevent-govt-shutdown.html
